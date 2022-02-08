@@ -1,12 +1,12 @@
 package com.hudlucas.mongodbspringgenerico.services;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hudlucas.mongodbspringgenerico.dto.UserDTO;
 import com.hudlucas.mongodbspringgenerico.model.entities.User;
 import com.hudlucas.mongodbspringgenerico.repositories.UserRepositoy;
 import com.hudlucas.mongodbspringgenerico.services.exception.ObjectNotFoundException;
@@ -25,5 +25,13 @@ public class UserService {
 		Optional<User> user = userRepo.findById(id);
 
 		return user.orElseThrow(()-> new ObjectNotFoundException("Não foi possível encontrar o objeto com o ID: " + id));
+	}
+	
+	public User insert(User user) {
+		return userRepo.insert(user);
+	}
+	
+	public User fromDTO(UserDTO userDTO) {
+		return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
 	}
 }
