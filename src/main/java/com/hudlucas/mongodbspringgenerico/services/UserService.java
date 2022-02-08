@@ -24,6 +24,6 @@ public class UserService {
 	public User findById(String id) {
 		Optional<User> user = userRepo.findById(id);
 
-		return user.orElseThrow(()-> new ObjectNotFoundException("Não foi possível encontar o objeto com o ID: " + id));
+		return user.orElseThrow(()-> new ObjectNotFoundException("Não foi possível encontrar o objeto com o ID: " + id));
 	}
 }
