@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.hudlucas.mongodbspringgenerico.model.entities.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,13 @@ public class UserResource {
 		User user = service.findById(id);
 		
 		return ResponseEntity.ok().body(new UserDTO(user));
+	}
+
+	@GetMapping("/{id}/posts")
+	public ResponseEntity<List<Post>> findByIdPosts(@PathVariable String id) {
+		User user = service.findById(id);
+
+		return ResponseEntity.ok().body(user.getPost());
 	}
 	
 	@PostMapping
