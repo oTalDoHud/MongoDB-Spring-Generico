@@ -1,5 +1,6 @@
 package com.hudlucas.mongodbspringgenerico.model.entities;
 
+import com.hudlucas.mongodbspringgenerico.dto.AuthorDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,20 +20,20 @@ public class Post implements Serializable {
 
     private String body;
 
-    private User author;
+    private AuthorDTO author;
 
     public Post() {
 
     }
 
-    public Post(Date date, String title, String body, User author) {
+    public Post(Date date, String title, String body, AuthorDTO author) {
         this.date = date;
         this.title = title;
         this.body = body;
         this.author = author;
     }
 
-    public Post(String id, Date date, String title, String body, User author) {
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -72,11 +73,11 @@ public class Post implements Serializable {
         this.body = body;
     }
 
-    public User getAuthor() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
 
