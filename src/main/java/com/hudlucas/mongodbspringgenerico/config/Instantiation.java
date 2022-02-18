@@ -32,7 +32,7 @@ public class Instantiation implements CommandLineRunner{
 		userRepo.deleteAll();
 		postRepo.deleteAll();
 		
-		User hud = new User("Hudson Lucas Teles Vieira", "Hudson@gmail.com");
+		User hud = new User("Hudson Lucas", "Hudson@gmail.com");
 		User pp = new User("Peterson Santos", "Peterson@gmail.com");
 		User ka = new User("Katharine Araujo", "Katharine@gmail.com");
 		User luis = new User("Luis Antonio", "Luis@gmail.com");
@@ -54,8 +54,6 @@ public class Instantiation implements CommandLineRunner{
 		hud.getPost().addAll(Arrays.asList(post1, post2));
 
 		userRepo.save(hud);
-
-
 	}
 
 }

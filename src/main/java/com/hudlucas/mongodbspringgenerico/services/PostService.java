@@ -24,4 +24,8 @@ public class PostService {
 		return post.orElseThrow(()-> new ObjectNotFoundException("Não foi possível encontrar o objeto com o ID: " + id));
 	}
 
+	public List<Post> findByTittle(String text){
+		return postRepo.findByTitleContainingIgnoreCase(text);
+	}
+
 }
